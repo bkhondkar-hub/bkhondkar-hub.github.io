@@ -1,1 +1,109 @@
-<h1>Defect Inspection</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Indorama Inspection Data</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #121212;
+        color: #fff;
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    video {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .controls {
+        margin-top: 15px;
+    }
+
+    button {
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        background: #1e88e5;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #1565c0;
+    }
+
+    input {
+        width: 80%;
+        padding: 8px;
+        margin-top: 15px;
+        border-radius: 5px;
+        border: none;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Indorama Pattern Inspection</h1>
+
+    <video id="videoPlayer" controls>
+        <source id="videoSource"
+            src="https://www.dropbox.com/scl/fi/d867x8oqzmit0fsoepj36/PatternRemoval_CS1M1.mp4?rlkey=crkblvxxzsedqgtoirxsmkfmc&st=vc4qgxrk&dl=0"
+            type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="controls">
+        <button onclick="playVideo()">Play</button>
+        <button onclick="pauseVideo()">Pause</button>
+        <button onclick="reloadVideo()">Reload</button>
+    </div>
+
+    
+</div>
+
+<script>
+function playVideo() 
+{
+    document.getElementById("videoPlayer").play();
+}
+
+function pauseVideo() 
+{
+    document.getElementById("videoPlayer").pause();
+}
+
+function reloadVideo() 
+{
+    const video = document.getElementById("videoPlayer");
+    video.load();
+    video.play();
+}
+
+function loadNewVideo() 
+{
+    let url = document.getElementById("videoUrl").value;
+    url = url.replace("?dl=0", "?raw=1");
+    document.getElementById("videoSource").src = url;
+    document.getElementById("videoPlayer").load();
+}
+</script>
+
+</body>
+</html>
+
